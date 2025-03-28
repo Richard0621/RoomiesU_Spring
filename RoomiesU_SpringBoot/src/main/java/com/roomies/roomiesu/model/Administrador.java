@@ -30,7 +30,7 @@ public class Administrador {
     private String correo;
 
     @Column(name = "telefono")
-    private Integer telefono;
+    private Long telefono;
 
     @Column(name = "edad")
     private Integer edad;

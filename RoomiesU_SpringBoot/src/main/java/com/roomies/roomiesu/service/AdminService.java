@@ -32,7 +32,8 @@ public class AdminService implements IAdminService {
 
     @Override
     public int deleteAdmin(Long id) {
-        return 0;
+        adminRepositorio.deleteById(id);
+        return 1;
     }
 
 }
