@@ -16,7 +16,7 @@ body {
 section{
     background-color: rgb(0, 0, 0, 0.7);
     height: auto;
-    width: auto;
+    width:  auto;
     margin: 0 auto;
     padding: 2rem 4rem;
     border-radius: 2rem;
@@ -56,7 +56,7 @@ section form button {
 
 section form button:hover {
     color: white;
-    background-color: blue;
+    background-color: darkgray;
     cursor: pointer;
 }
 
