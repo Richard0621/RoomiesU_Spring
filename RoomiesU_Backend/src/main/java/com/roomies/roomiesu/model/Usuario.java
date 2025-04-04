@@ -35,8 +35,8 @@ public class Usuario {
     @Column(name = "identificacion")
     private Integer identificacion;
 
-    @Column(name = "correo")
-    private String correo;
+    @Column(name = "correo", nullable = false, unique = true)
+    private String email;
 
     @Column(name = "telefono")
     private Integer telefono;

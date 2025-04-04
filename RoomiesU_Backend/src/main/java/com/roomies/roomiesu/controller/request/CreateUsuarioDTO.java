@@ -29,7 +29,7 @@ public class CreateUsuarioDTO {
     private Integer identificacion;
 
     @Email(message = "Debe ser un email válido")
-    private String correo;
+    private String email;
 
     private Integer telefono;
     private Integer edad;

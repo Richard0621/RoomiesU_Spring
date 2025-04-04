@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class UsuarioService implements IUsuarioService{
+public class UsuarioService implements IUsuarioService {
 
     @Autowired
     UsuarioRepositorio userRespositorio;
@@ -38,8 +38,4 @@ public class UsuarioService implements IUsuarioService{
         return 1;
     }
 
-    @Override
-    public Optional<Usuario> getUserByUsername(String username) {
-        return userRespositorio.getUsername(username);
-    }
 }

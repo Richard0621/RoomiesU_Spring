@@ -15,5 +15,4 @@ public interface IUsuarioService {
 
     int deleteUsuario(Long id);
 
-    Optional<Usuario> getUserByUsername(String username);
 }

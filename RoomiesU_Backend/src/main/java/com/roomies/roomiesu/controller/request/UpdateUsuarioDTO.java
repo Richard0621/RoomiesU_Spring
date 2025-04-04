@@ -15,7 +15,7 @@ public class UpdateUsuarioDTO {
     private String nombre;
     private String apellido;
     private Integer identificacion;
-    private String correo;
+    private String email;
     private Integer telefono;
     private Integer edad;
     private String descripcion;

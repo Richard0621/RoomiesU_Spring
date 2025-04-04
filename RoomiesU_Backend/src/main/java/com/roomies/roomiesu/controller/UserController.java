@@ -61,9 +61,9 @@ public class UserController {
     @PostMapping("/create")
     @PreAuthorize("hasAnyRole('ADMIN_PENSION','ESTUDIANTE', 'SUPER_ADMIN')")
     public ResponseEntity<Usuario> createAdmin(@Valid @RequestBody CreateUsuarioDTO userDto) {
-        // Validar si el usuario ya existe
-        if (usuarioService.getAllUsers().stream().anyMatch(user -> user.getUsername().equals(userDto.getUsername()))) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre de usuario ya está en uso");
+        // Validar si el correo ya existe
+        if (usuarioService.getAllUsers().stream().anyMatch(user -> user.getEmail().equals(userDto.getEmail()))) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El correo ya está en uso");
         }
 
         // Convertir los roles del DTO a entidades
@@ -80,7 +80,7 @@ public class UserController {
                 .apellido(userDto.getApellido())   
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .identificacion(userDto.getIdentificacion())   
-                .correo(userDto.getCorreo())                   
+                .email(userDto.getEmail())
                 .telefono(userDto.getTelefono())               
                 .edad(userDto.getEdad())                       
                 .descripcion(userDto.getDescripcion())         
@@ -110,7 +110,7 @@ public class UserController {
         if (userDto.getNombre() != null) usuario.setNombre(userDto.getNombre());
         if (userDto.getApellido() != null) usuario.setApellido(userDto.getApellido());
         if (userDto.getIdentificacion() != null) usuario.setIdentificacion(userDto.getIdentificacion());
-        if (userDto.getCorreo() != null) usuario.setCorreo(userDto.getCorreo());
+        if (userDto.getEmail() != null) usuario.setEmail(userDto.getEmail());
         if (userDto.getTelefono() != null) usuario.setTelefono(userDto.getTelefono());
         if (userDto.getEdad() != null) usuario.setEdad(userDto.getEdad());
         if (userDto.getDescripcion() != null) usuario.setDescripcion(userDto.getDescripcion());

@@ -29,9 +29,9 @@ public class JwtUtils {
     private String timeExpiration;
 
     // GENERAR TOKEN DE ACCESO
-    public String generateAccessToken(String usuario) {
+    public String generateAccessToken(String email) {
         return Jwts.builder()
-                .setSubject(usuario) // el subject es el usuario Que se loguea
+                .setSubject(email) // el subject es el email Que se loguea
                 .setIssuedAt(new Date(System.currentTimeMillis()))  // fecha de emisión
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(timeExpiration))) // fecha de expiración
                 .signWith(getSignatureKey(), SignatureAlgorithm.HS256) // firma del token
@@ -65,7 +65,7 @@ public class JwtUtils {
     }
 
 
-    // OBTENER TODOS LOS CLAIMS DEL TOKEN, o sea, la información del usuario que viene en el token
+    // OBTENER TODOS LOS CLAIMS DEL TOKEN, o sea, la información del user que viene en el token
     public Claims extractAllClaims(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSignatureKey())

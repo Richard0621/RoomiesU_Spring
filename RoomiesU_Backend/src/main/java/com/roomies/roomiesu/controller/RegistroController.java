@@ -33,9 +33,9 @@ public class RegistroController {
     // Registro público de estudiantes o admin_pension
     @PostMapping("/register")
     public ResponseEntity<Usuario> registerUser(@Valid @RequestBody CreateUsuarioDTO userDto) {
-        // Validar si el usuario ya existe
-        if (usuarioService.getAllUsers().stream().anyMatch(user -> user.getUsername().equals(userDto.getUsername()))) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El nombre de usuario ya está en uso");
+        // Validar si el correo ya existe
+        if (usuarioService.getAllUsers().stream().anyMatch(user -> user.getEmail().equals(userDto.getEmail()))) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El correo ya está en uso");
         }
         // Asignar rol por defecto si no se especifica
         Set<RolModelo> roles = new HashSet<>();
@@ -59,7 +59,7 @@ public class RegistroController {
                 .apellido(userDto.getApellido())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .identificacion(userDto.getIdentificacion())
-                .correo(userDto.getCorreo())
+                .email(userDto.getEmail())
                 .telefono(userDto.getTelefono())
                 .edad(userDto.getEdad())
                 .telefono(userDto.getTelefono())
