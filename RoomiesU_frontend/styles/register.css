@@ -31,6 +31,13 @@ section h1 {
     margin-bottom: 1.5rem;
 }
 
+section form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
 section form input {
     font-size: 1.2rem;
     display: block;
@@ -52,6 +59,8 @@ section form button {
     padding: 0 1rem;
     border-radius: 1rem;
     color: black;
+    flex-basis: 50%;
+    align-self: center;
 }
 
 section form button:hover {

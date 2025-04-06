@@ -14,9 +14,9 @@ public class UpdateUsuarioDTO {
     private String username;
     private String nombre;
     private String apellido;
-    private Integer identificacion;
+    private Long identificacion;
     private String email;
-    private Integer telefono;
+    private Long telefono;
     private Integer edad;
     private String descripcion;
     private Set<String> roles; // Se reciben como Strings (ej. "ADMIN", "ESTUDIANTE")

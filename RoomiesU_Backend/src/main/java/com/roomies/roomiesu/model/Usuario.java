@@ -33,13 +33,13 @@ public class Usuario {
     private String password;
 
     @Column(name = "identificacion")
-    private Integer identificacion;
+    private Long identificacion;
 
     @Column(name = "correo", nullable = false, unique = true)
     private String email;
 
     @Column(name = "telefono")
-    private Integer telefono;
+    private Long telefono;
 
     @Column(name = "edad")
     private Integer edad;

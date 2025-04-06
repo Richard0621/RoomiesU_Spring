@@ -26,12 +26,12 @@ public class CreateUsuarioDTO {
     @NotBlank(message = "La contraseña es obligatoria")
     private String password;
 
-    private Integer identificacion;
+    private Long identificacion;
 
     @Email(message = "Debe ser un email válido")
     private String email;
 
-    private Integer telefono;
+    private Long telefono;
     private Integer edad;
     private String descripcion;
     private Boolean isAvailable;
