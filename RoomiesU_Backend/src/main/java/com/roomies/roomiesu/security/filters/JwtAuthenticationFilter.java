@@ -55,19 +55,35 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         User user = (User) authResult.getPrincipal();
         String token = jwtUtils.generateAccessToken(user.getUsername()); // Aquí sigue usando getUsername() porque Spring Security internamente usa username
 
-        response.addHeader("Authorization", token);
+        // 👇🏻 AGREGA ESTOS HEADERS PARA PERMITIR CORS
+        response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
 
+        // 👇🏻 TAMBIÉN ESTABLECE TIPO Y STATUS ANTES DE USAR getWriter
+        response.setStatus(HttpStatus.OK.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+
+        // 👇🏻 CONSTRUIMOS Y ENVIAMOS RESPUESTA JSON
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
         httpResponse.put("Message", "Autenticación Correcta");
-        httpResponse.put("email", user.getUsername()); // Cambiado de username a email en la respuesta
+        httpResponse.put("email", user.getUsername());
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
-        response.setStatus(HttpStatus.OK.value());
-        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.getWriter().flush();
-
-        super.successfulAuthentication(request, response, chain, authResult);
+//        response.addHeader("Authorization", token);
+//
+//        Map<String, Object> httpResponse = new HashMap<>();
+//        httpResponse.put("token", token);
+//        httpResponse.put("Message", "Autenticación Correcta");
+//        httpResponse.put("email", user.getUsername()); // Cambiado de username a email en la respuesta
+//
+//        response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
+//        response.setStatus(HttpStatus.OK.value());
+//        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+//        response.getWriter().flush();
+//
+//        super.successfulAuthentication(request, response, chain, authResult);
     }
 }
 

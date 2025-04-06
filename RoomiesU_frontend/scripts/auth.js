@@ -1,17 +1,18 @@
+//Ingreso de usuario 
 async function validarLogin() {
-    let usuario = document.getElementById("usuario").value;
+    let correo = document.getElementById("correo").value;
     let contraseña = document.getElementById("contraseña").value;
 
-    if (!usuario || !contraseña) {
-        alert("Por favor, ingresa usuario y contraseña");
+    if (!correo || !contraseña) {
+        alert("Por favor, ingresa correo y contraseña");
         return;
     }
 
     try {
-        let response = await fetch("http://localhost:80080/api/auth/login", {
+        let response = await fetch("http://localhost:8080/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username: usuario, password: contraseña })
+            body: JSON.stringify({ email: correo, password: contraseña })
         });
 
         if (response.ok) {
@@ -26,3 +27,9 @@ async function validarLogin() {
         alert("Hubo un problema al conectar con el servidor.");
     }
 }
+
+//Registro de usuario
+async function validarRegistro() {
+    
+}
+
