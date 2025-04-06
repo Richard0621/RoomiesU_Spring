@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="container"> 
+        <div class="row">
+            <form id="form-usuario" class="mt-4" action="" onsubmit="" method="POST">
+                <div class="mb-3">
+                    <label for="usuario_id">Id</label>
+                    <input type="text" class="form-control" id="usuario_id" name="usuario-id" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="rol">Rol</label>
+                    <input type="text" class="form-control" id="rol" name="rol" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="identificacion" class="form-label">Identificación</label>
+                    <input type="number" class="form-control" id="identificacion" name="identificacion">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono">
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="text" class="form-control" id="edad" name="edad">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveProveedor()">Guardar</button>
+                <button type="button" class="btn btn-danger" onclick="deleteProveedor()">Eliminar</button>
+            </form>
+         </div>
+</body>
+</html>

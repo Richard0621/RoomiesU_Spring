@@ -1,14 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-    let token = localStorage.getItem("token");
+const url = "http://localhost:8080/"
 
-    if (!token) {
-        alert("No tienes sesión iniciada. Redirigiendo al login...");
-        window.location.href = "index.html"; // Redirige al login si no hay sesión
+function sendRequest(endPoint, method, data){
+    let request = new XMLHttpRequest();
+    request.open(method, url+endPoint);
+    request.responseType = 'json' ;
+    request. setRequestHeader('Content-Type' , 'application/json');
+    const token = localStorage.getItem('token');
+    if (token) {
+        request.setRequestHeader('Authorization', 'Bearer ' + token);
     }
-});
-
-function cerrarSesion() {
-    localStorage.removeItem("token");
-    window.location.href = "index.html";
+    request.send(data ? JSON.stringify(data): data);
+    return request
 }
-

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/usuario.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <title>Administradores</title>
+    <title>Estudiantes</title>
 </head>
 <body>
     <header>
@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="home.html">Inicio</a></li>
-                <li><a href="estudiante.html">Estudiantes</a></li>
+                <li><a href="admin.html">Administradores</a></li>
                 <li><a href="perfil.html">Perfil</a></li>
             </ul>
         </nav>
@@ -21,9 +21,9 @@
 
     <section>
         <div id="cabecera">
-            <h2>Administradores</h2>
-            <button onclick="window.location='form_admin.html' "> 
-                Nuevo Administrador
+            <h2>Estudiantes</h2>
+            <button onclick="window.location='form_estudiante.html' "> 
+                Nuevo Estudiante
             </button>
         </div>
         <div class="divider"></div>
@@ -50,7 +50,7 @@
     <script src="scripts/request.js"></script>
     <script> 
         window.onload = () => {
-            loadAdmins();
+            loadEstudiantes();
         }
     </script>
 </body>
