@@ -21,6 +21,7 @@ header {
     position: fixed;
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px); 
+    z-index: 1000;
 }
 
 header ul {
@@ -56,17 +57,15 @@ header ul li a:hover {
 section {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 60%;
     justify-content: center;
+    text-align: center;
     margin: 2rem auto;
-}
-
-section #cabecera {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
 }
 
 section button {
@@ -92,15 +91,28 @@ section button:hover {
     cursor: pointer;
 }
 
-section table {
-    padding: 1rem 0rem 1rem 2rem;
-    border-radius: 1rem;
-    background-color: rgb(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
+#form-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
-.divider {
-    height: 1px;
-    background-color: white;
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: white;
+}
+
+input.form-control {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 50%;
+    box-sizing: border-box;
 }

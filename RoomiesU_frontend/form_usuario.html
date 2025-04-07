@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/form_usuario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="container"> 
+
+    <header>
+        <h1>RoomiesU</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="admin.html">Administradores</a></li>
+                <li><a href="estudiante.html">Estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section> 
         <div class="row">
             <form id="form-usuario" class="mt-4" action="" onsubmit="" method="POST">
                 <div class="mb-3">
-                    <label for="usuario_id">Id</label>
+                    <label for="usuario_id" class="form-label">Id</label>
                     <input type="text" class="form-control" id="usuario_id" name="usuario-id" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="rol">Rol</label>
+                    <label for="rol" class="form-label">Rol</label>
                     <input type="text" class="form-control" id="rol" name="rol" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="username">Username</label>
+                    <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
                 <div class="mb-3">
@@ -49,9 +63,21 @@
                     <label for="descripcion" class="form-label">Descripción</label>
                     <input type="text" class="form-control" id="descripcion" name="descripcion">
                 </div>
-                <button type="button" class="btn btn-primary" onclick="saveProveedor()">Guardar</button>
-                <button type="button" class="btn btn-danger" onclick="deleteProveedor()">Eliminar</button>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button type="button" class="btn btn-primary" onclick="saveUsuario()">Guardar</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteUsuario()">Eliminar</button>
+                  </div>
             </form>
          </div>
+    </section>
+    <script src="scripts/request.js"></script>
+    <script src="scripts/usuario.js"></script>
+    <script> 
+        window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('idusuario') != null)
+                loadUsuario(urlParams.get('idusuario'))
+        }
+    </script>
 </body>
 </html>
