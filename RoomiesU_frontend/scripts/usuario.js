@@ -110,22 +110,50 @@ function loadUsuario(idusuario){
 //Función para editar los datos del usuario en el formulario de edición
 function saveUsuario(){
     let id = document.getElementById('usuario_id').value
+    //let rol = document.getElementById('rol').value
+    let username = document.getElementById('username').value
+    let nombre = document.getElementById('nombre').value
+    let apellido = document.getElementById('apellido').value
+    let identificacion = document.getElementById('identificacion').value
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+    let telefono = document.getElementById('telefono').value
+    let edad = document.getElementById('edad').value
+    let descripcion = document.getElementById('descripcion').value
+    let data = {'id': id, 'username':username,'nombre': nombre, 
+        'apellido': apellido, 'identificacion': identificacion, 'email': email,
+        'password': password, 'telefono': telefono, 'edad': edad, 'descripcion': descripcion}
+    console.log(data);
+    let request = sendRequest('api/user/update', 'POST', data)
+    request.onload = function(){
+        alert('Usuario actualizado exitosamente.')
+        window.location = 'home.html';
+    }
+    request.onerror = function(){
+        alert('Error al guardar los cambios.')
+    }
+}
+
+//Función para crear los datos del usuario en el formulario de edición
+function createUsuario(){
+    //let id = document.getElementById('usuario_id').value
     let rol = document.getElementById('rol').value
     let username = document.getElementById('username').value
     let nombre = document.getElementById('nombre').value
     let apellido = document.getElementById('apellido').value
     let identificacion = document.getElementById('identificacion').value
     let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
     let telefono = document.getElementById('telefono').value
     let edad = document.getElementById('edad').value
     let descripcion = document.getElementById('descripcion').value
-    let data = {'id': id, 'username':username,'nombre': nombre, 
+    let data = {'roles': [rol], 'username':username,'nombre': nombre, 
         'apellido': apellido, 'identificacion': identificacion, 'email': email,
-        'telefono': telefono, 'edad': edad, 'descripcion': descripcion}
+        'password': password, 'telefono': telefono, 'edad': edad, 'descripcion': descripcion}
     console.log(data);
-    let request = sendRequest('api/user/update', id ? 'PUT' : 'POST', data)
+    let request = sendRequest('api/user/create', 'POST', data)
     request.onload = function(){
-        alert('Usuario creado o actualizado exitosamente.')
+        alert('Usuario creado exitosamente.')
         window.location = 'home.html';
     }
     request.onerror = function(){

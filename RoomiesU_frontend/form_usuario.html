@@ -52,6 +52,10 @@
                     <input type="text" class="form-control" id="email" name="email">
                 </div>
                 <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="text" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
                     <label for="telefono" class="form-label">Teléfono</label>
                     <input type="text" class="form-control" id="telefono" name="telefono">
                 </div>
@@ -64,6 +68,7 @@
                     <input type="text" class="form-control" id="descripcion" name="descripcion">
                 </div>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button type="button" class="btn btn-primary" onclick="createUsuario()">Crear</button>
                     <button type="button" class="btn btn-primary" onclick="saveUsuario()">Guardar</button>
                     <button type="button" class="btn btn-danger" onclick="deleteUsuario()">Eliminar</button>
                   </div>
@@ -78,6 +83,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('idusuario') != null)
                 loadUsuario(urlParams.get('idusuario'))
+            urlParams.get('rol') == 'ADMIN_PENSION' ? document.getElementById('rol').value = 'ADMIN_PENSION' : document.getElementById('rol').value = 'ESTUDIANTE'
         }
     </script>
 </body>

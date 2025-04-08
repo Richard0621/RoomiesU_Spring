@@ -23,9 +23,9 @@
 
     <section>
         <div id="cabecera">
-            <h2>Administradores</h2>
-            <button onclick="window.location='form_usuario.html?rol=ADMIN_PENSION' "> 
-                Nuevo Administrador
+            <h2>Habitaciones</h2>
+            <button onclick="window.location='form_habitacion.html' "> 
+                Nueva Habitación
             </button>
         </div>
         <div class="divider"></div>
@@ -48,12 +48,12 @@
             </tbody>
         </table>
     </section>
-    <script src="scripts/usuario.js"></script>
+    <script src="scripts/habitacion.js"></script>
     <script src="scripts/request.js"></script>
     <script src="Scripts/home.js"></script>
     <script> 
         window.onload = () => {
-            loadAdmins();
+            loadHabitaciones();
         }
     </script>
 </body>
