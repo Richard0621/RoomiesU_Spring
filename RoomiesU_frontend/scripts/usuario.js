@@ -119,13 +119,13 @@ function saveUsuario(){
     let telefono = document.getElementById('telefono').value
     let edad = document.getElementById('edad').value
     let descripcion = document.getElementById('descripcion').value
-    let data = {'id': id,'rol':rol,'username':username,'nombre': nombre, 
+    let data = {'id': id, 'username':username,'nombre': nombre, 
         'apellido': apellido, 'identificacion': identificacion, 'email': email,
         'telefono': telefono, 'edad': edad, 'descripcion': descripcion}
     console.log(data);
     let request = sendRequest('api/user/update', id ? 'PUT' : 'POST', data)
     request.onload = function(){
-        alert('Usuario Creado o actualizado Exitosamente.')
+        alert('Usuario creado o actualizado exitosamente.')
         window.location = 'home.html';
     }
     request.onerror = function(){

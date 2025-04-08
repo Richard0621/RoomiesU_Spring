@@ -36,10 +36,10 @@ public class HabitacionService {
             throw new EntityNotFoundException("Habitación no encontrada con id: " + id);
         }
         Habitacion habitacion = getHabitacionById(id);
-        habitacion.setPrecio(habitacionDetails.getPrecio());
-        habitacion.setDescripcion(habitacionDetails.getDescripcion());
-        habitacion.setRequisitos(habitacionDetails.getRequisitos());
-        habitacion.setUnidadVivienda(habitacionDetails.getUnidadVivienda());
+        if (habitacionDetails.getPrecio() != null) habitacion.setPrecio(habitacionDetails.getPrecio());
+        if (habitacionDetails.getDescripcion() != null) habitacion.setDescripcion(habitacionDetails.getDescripcion());
+        if (habitacionDetails.getRequisitos() != null) habitacion.setRequisitos(habitacionDetails.getRequisitos());
+        if (habitacionDetails.getUnidadVivienda() != null) habitacion.setUnidadVivienda(habitacionDetails.getUnidadVivienda());
         return habitacionRepository.save(habitacion);
     }
 
