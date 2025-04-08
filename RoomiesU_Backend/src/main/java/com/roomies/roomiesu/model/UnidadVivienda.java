@@ -26,7 +26,7 @@ public class UnidadVivienda {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "sector_id")
+    @JoinColumn(name = "id_sector")
     private Sector sector;
 
     @ManyToOne
