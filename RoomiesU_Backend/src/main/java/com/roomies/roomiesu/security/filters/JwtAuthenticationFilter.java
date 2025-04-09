@@ -58,15 +58,15 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .findFirst()
                 .map(Object::toString)
                 .orElse("USER");
-        // 👇🏻 AGREGA ESTOS HEADERS PARA PERMITIR CORS
+        // AGREGA ESTOS HEADERS PARA PERMITIR CORS
         response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        // 👇🏻 TAMBIÉN ESTABLECE TIPO Y STATUS ANTES DE USAR getWriter
+        // TAMBIÉN ESTABLECE TIPO Y STATUS ANTES DE USAR getWriter
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
-        // 👇🏻 CONSTRUIMOS Y ENVIAMOS RESPUESTA JSON
+        // CONSTRUIMOS Y ENVIAMOS RESPUESTA JSON
         Map<String, Object> httpResponse = new HashMap<>();
         httpResponse.put("token", token);
         httpResponse.put("Message", "Autenticación Correcta");

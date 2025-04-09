@@ -61,9 +61,9 @@
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('idhabitacion') != null) loadHabitacion(urlParams.get('idhabitacion'));
             if (localStorage.getItem('rol') !== 'ROLE_ADMIN_PENSION') {
-                window.location='habitacion.html'
+                //window.location='habitacion.html'
                 document.getElementById('botones').style.display = 'none';
-                alert('No tienes permisos para acceder a esta página.')
+                // alert('No tienes permisos para acceder a esta página.')
             }
         }
     </script>

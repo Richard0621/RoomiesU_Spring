@@ -24,7 +24,7 @@
     <section>
         <div id="cabecera">
             <h2>Habitaciones</h2>
-            <button onclick="window.location='form_habitacion.html' "> 
+            <button id="botonCrear" onclick="window.location='form_habitacion.html' "> 
                 Nueva Habitación
             </button>
         </div>
@@ -50,6 +50,11 @@
     <script> 
         window.onload = () => {
             loadHabitaciones();
+            if (localStorage.getItem('rol') !== 'ROLE_ADMIN_PENSION') {
+                //window.location='habitacion.html'
+                document.getElementById('botonCrear').style.display = 'none';
+                // alert('No tienes permisos para acceder a esta página.')
+            }
         }
     </script>
 </body>
