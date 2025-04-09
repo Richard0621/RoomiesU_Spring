@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/form_usuario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>RoomiesU</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="admin.html">Administradores</a></li>
+                <li><a href="estudiante.html">Estudiantes</a></li>
+                <li><a href="habitacion.html">Habitaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section> 
+        <div class="row">
+            <form id="form-usuario" class="mt-4" action="" onsubmit="" method="POST">
+                <div class="mb-3">
+                    <label for="habitacion_id" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="habitacion_id" name="habitacion_id" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="text" class="form-control" id="precio" name="precio">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion">
+                </div>
+                <div class="mb-3">
+                    <label for="requisitos" class="form-label">Requisitos</label>
+                    <input type="text" class="form-control" id="requisitos" name="requisitos">
+                </div>
+                <div class="mb-3">
+                    <label for="administrador" class="form-label">Administrador</label>
+                    <input type="text" class="form-control" id="administrador" name="administrador" readonly>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button type="button" class="btn btn-primary" onclick="createHabitacion()">Crear</button>
+                    <button type="button" class="btn btn-primary" onclick="saveHabitacion()">Guardar</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteHabitacion()">Eliminar</button>
+                  </div>
+            </form>
+         </div>
+    </section>
+    <script src="scripts/request.js"></script>
+    <script src="scripts/habitacion.js"></script>
+    <script src="Scripts/home.js"></script>
+    <script> 
+        window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('idhabitacion') != null)
+                loadHabitacion(urlParams.get('idhabitacion'));
+            urlParams.get('rol')
+        }
+    </script>
+</body>
+</html>

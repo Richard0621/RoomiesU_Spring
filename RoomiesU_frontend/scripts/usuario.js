@@ -74,7 +74,7 @@ function loadEstudiantes(){
     }
 }
 
-//Función para cargar los datos del usuario en el formulario de edición
+//Función para cargar los datos del usuario 
 function loadUsuario(idusuario){
     let request = sendRequest('api/user/list/'+idusuario, 'GET', '')
     let id = document.getElementById('usuario_id')
@@ -124,7 +124,7 @@ function saveUsuario(){
         'apellido': apellido, 'identificacion': identificacion, 'email': email,
         'password': password, 'telefono': telefono, 'edad': edad, 'descripcion': descripcion}
     console.log(data);
-    let request = sendRequest('api/user/update', 'POST', data)
+    let request = sendRequest('api/user/update', 'PUT', data)
     request.onload = function(){
         alert('Usuario actualizado exitosamente.')
         window.location = 'home.html';

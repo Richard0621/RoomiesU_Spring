@@ -53,6 +53,12 @@ header ul li a:hover {
     border-radius: 1rem;
 }
 
+header ul li a:active {
+    background-color: lightblue;
+    color: black;
+    border-radius: 1rem;
+}
+
 header button {
     transition:  background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
     text-decoration: none;
@@ -121,6 +127,11 @@ section table {
     background-color: rgb(0, 0, 0, 0.4);
     backdrop-filter: blur(10px); 
     -webkit-backdrop-filter: blur(10px); 
+}
+
+td {
+    padding: 0.5rem;
+    text-align: center;
 }
 
 .divider {
