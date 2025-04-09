@@ -87,13 +87,17 @@ function createHabitacion(){
     let data = {'precio': precio, 'descripcion': descripcion, 
         'unidadVivienda': {'id': 1}, 'requisitos': requisitos, 'administrador': {'id': 1}}
     console.log(data);
-    let request = sendRequest('api/habitaciones/create', 'POST', data)
-    request.onload = function(){
-        alert('Habitación creada exitosamente.')
-        window.location = 'home.html';
-    }
-    request.onerror = function(){
-        alert('Error al guardar los cambios.')
+    try {
+        let request = sendRequest('api/habitaciones/create', 'POST', data)
+        request.onload = function(){
+            alert('Habitación creada exitosamente.')
+            window.location = 'home.html';
+        }
+        request.onerror = function(){
+            alert('Error al guardar los cambios.')
+        }
+    } catch {
+        alert('Error al guardar los cambios. No tienes permiso.')
     }
 }
 

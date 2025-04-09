@@ -18,6 +18,7 @@ async function validarLogin() {
         if (response.ok) {
             let data = await response.json();
             localStorage.setItem("token", data.token); // Guardar el token
+            localStorage.setItem('rol', data.rol); // Guardar el rol
             window.location.href = "home.html"; // Redirigir a inicio.html
         } else {
             alert("Credenciales incorrectas");

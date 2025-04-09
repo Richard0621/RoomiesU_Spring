@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function cerrarSesion() {
     localStorage.removeItem("token");
+    localStorage.removeItem("rol");
     window.location.href = "index.html";
 }
 

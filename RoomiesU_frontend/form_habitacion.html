@@ -40,16 +40,16 @@
                     <label for="requisitos" class="form-label">Requisitos</label>
                     <input type="text" class="form-control" id="requisitos" name="requisitos">
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="administrador" class="form-label">Administrador</label>
                     <input type="text" class="form-control" id="administrador" name="administrador" readonly>
-                </div>
+                </div> -->
                 
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <div id="botones" style="display: flex; gap: 1rem; justify-content: center;">
                     <button type="button" class="btn btn-primary" onclick="createHabitacion()">Crear</button>
                     <button type="button" class="btn btn-primary" onclick="saveHabitacion()">Guardar</button>
                     <button type="button" class="btn btn-danger" onclick="deleteHabitacion()">Eliminar</button>
-                  </div>
+                </div>
             </form>
          </div>
     </section>
@@ -59,9 +59,12 @@
     <script> 
         window.onload = function(){
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('idhabitacion') != null)
-                loadHabitacion(urlParams.get('idhabitacion'));
-            urlParams.get('rol')
+            if (urlParams.get('idhabitacion') != null) loadHabitacion(urlParams.get('idhabitacion'));
+            if (localStorage.getItem('rol') !== 'ROLE_ADMIN_PENSION') {
+                window.location='habitacion.html'
+                document.getElementById('botones').style.display = 'none';
+                alert('No tienes permisos para acceder a esta página.')
+            }
         }
     </script>
 </body>

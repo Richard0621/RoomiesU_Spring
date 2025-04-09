@@ -54,7 +54,10 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         User user = (User) authResult.getPrincipal();
         String token = jwtUtils.generateAccessToken(user.getUsername()); // Aquí sigue usando getUsername() porque Spring Security internamente usa username
-
+        String rol = user.getAuthorities().stream()
+                .findFirst()
+                .map(Object::toString)
+                .orElse("USER");
         // 👇🏻 AGREGA ESTOS HEADERS PARA PERMITIR CORS
         response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -68,6 +71,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         httpResponse.put("token", token);
         httpResponse.put("Message", "Autenticación Correcta");
         httpResponse.put("email", user.getUsername());
+        httpResponse.put("rol", rol);
 
         response.getWriter().write(new ObjectMapper().writeValueAsString(httpResponse));
         response.getWriter().flush();
