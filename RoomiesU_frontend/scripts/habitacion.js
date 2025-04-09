@@ -15,7 +15,7 @@ function loadHabitaciones(){
                     <td>${element.requisitos}</td>
                     <td>${element.administrador.nombre}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" onclick='window. location =
+                        <button type="button" class="btn btn-primary" onclick='window.location =
                         "form_habitacion.html?idhabitacion=${element.id}"'>Ver</button>
                     </td>
                 </tr>
@@ -37,9 +37,9 @@ function loadHabitacion(idhabitacion){
     let id = document.getElementById('habitacion_id')
     let precio = document.getElementById('precio')
     let descripcion = document.getElementById('descripcion')
-    let unidad = document.getElementById('unidad_vivienda')  
+    //let unidad = document.getElementById('unidad_vivienda')  
     let requisitos = document.getElementById('requisitos')
-    let administrador = document.getElementById('administrador')
+    //let administrador = document.getElementById('administrador')
     request.onload = function(){
         let data = request.response;
         //Se actualiza el valor de las variables según el JSON
@@ -47,9 +47,9 @@ function loadHabitacion(idhabitacion){
         id.value = data.id
         precio.value = data.precio
         descripcion.value = data.descripcion        
-        unidad.value = data.unidadVivienda.nombre
+        //unidad.value = data.unidadVivienda ? data.unidadVivienda.nombre : "Sin asignar"
         requisitos.value = data.requisitos
-        administrador.value = data.administrador.nombre
+        //administrador.value = data.administrador.nombre
     }
     request.onerror = function(){
         alert("Error al recuperar los datos.");

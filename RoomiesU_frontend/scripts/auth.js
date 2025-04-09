@@ -43,8 +43,9 @@ async function validarRegistro() {
     let correo = document.getElementById("correo").value;
     let contraseña = document.getElementById("contraseña").value;
     let telefono = document.getElementById("telefono").value;
+    let edad = document.getElementById("edad").value;
 
-    if (!correo || !contraseña || !nombre || !apellido || !identificacion || !telefono || !username) {
+    if (!correo || !contraseña || !nombre || !apellido || !identificacion || !telefono || !username || !edad) {
         alert("Por favor, completa todos los campos obligatorios");
         //alert("Por favor, ingresa todos los datos correctamente");
         return;
@@ -78,7 +79,7 @@ async function validarRegistro() {
                 identificacion, 
                 email: correo,
                 telefono, 
-                edad: null,
+                edad,
                 descripcion: "",
                 "isAvailable": true,
                 roles: [rol] })
