@@ -65,3 +65,8 @@ Contiene la lógica de negocio:
 - `IUsuarioService`: Interfaz del servicio de usuario.
 - `UsuarioService`: Lógica para usuarios.
 - `UserDetailsServiceImpl`: Carga detalles del usuario autenticado para Spring Security.
+
+## Frontend 
+### Estructura
+![front](https://github.com/user-attachments/assets/f025b41e-15c4-485b-86cd-9494d3a0e620)
+
