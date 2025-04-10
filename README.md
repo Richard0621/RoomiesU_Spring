@@ -70,3 +70,18 @@ Contiene la lógica de negocio:
 ### Estructura
 ![front](https://github.com/user-attachments/assets/f025b41e-15c4-485b-86cd-9494d3a0e620)
 
+#### imgs
+En esta carpeta se encuentran todas las imágenes utilizadas para el frontend.
+
+### scripts
+Todos los scripts para manejar la lógica de mandar las peticiones para conectar con los endpoints definidos en el back.
+- `auth.js`: Lógica para conectar con los endpoint de registro y login, en las funciones de `validarRegistro()` y `validarLogin()` respectivamente.
+- `habitacion.js`: Funciones para conectar con los endpoints del CRUD de habitación.
+- `home.js`: Función para verificar existencia del token en caso de no estar iniciado y de cerrar sesión.
+- `request.js`: Función para enviar petición al back según el endPoint, el método, y los datos en caso de ser necsarios.
+- `usaurio.js`: Funciones para conectar con los endpoints del CRUD de usuario en el back, diferenciado según el rol.
+
+### styles
+Todas las hojas de estilo para los distintos html del front.
+
+Por último, están todas las páginas html del sitio web.
