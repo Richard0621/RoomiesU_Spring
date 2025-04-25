@@ -82,6 +82,6 @@ Todos los scripts para manejar la lógica de mandar las peticiones para conectar
 - `usaurio.js`: Funciones para conectar con los endpoints del CRUD de usuario en el back, diferenciado según el rol.
 
 ### styles
-Todas las hojas de estilo para los distintos html del front.
+Todas las hojas de estilo para los distintas páginas.
 
 Por último, están todas las páginas html del sitio web.
